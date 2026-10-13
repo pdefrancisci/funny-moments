@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Funny Moments</title>
-    <link>https://funny-moments.neocities.org/</link>
+    <link>https://funny-moments.xyz/</link>
     <description>The website of funny moments</description>
     <language>en-us</language>
     <lastBuildDate>Sat, 1 Nov 2025 10:28:00 +0000</lastBuildDate>
@@ -17,34 +17,34 @@
 
     <item>
       <title>Day one with my chumby</title>
-      <link>https://funny-moments.neocities.org/programming/chumby/day_one</link>
+      <link>https://funny-moments.xyz/programming/chumby/day_one</link>
       <description>Day one with my chumby</description>
       <pubDate>Sat, 1 Nov 2025 00:36:00 +0000</pubDate>
-      <guid>https://funny-moments.neocities.org/programming/chumby/day_one</guid>
+      <guid>https://funny-moments.xyz/programming/chumby/day_one</guid>
     </item>
 
     <item>
       <title>I zurked my chumby</title>
-      <link>https://funny-moments.neocities.org/programming/chumby/zurk</link>
+      <link>https://funny-moments.xyz/programming/chumby/zurk</link>
       <description>I zurked my chumby</description>
       <pubDate>Sat, 1 Nov 2025 00:36:00 +0000</pubDate>
-      <guid>https://funny-moments.neocities.org/programming/chumby/zurk</guid>
+      <guid>https://funny-moments.xyz/programming/chumby/zurk</guid>
     </item>
 
     <item>
       <title>I bought a chumby</title>
-      <link>https://funny-moments.neocities.org/programming/chumby/chumby</link>
+      <link>https://funny-moments.xyz/programming/chumby/chumby</link>
       <description>I bought a chumby</description>
       <pubDate>Sat, 1 Nov 2025 00:36:00 +0000</pubDate>
-      <guid>https://funny-moments.neocities.org/programming/chumby/chumby</guid>
+      <guid>https://funny-moments.xyz/programming/chumby/chumby</guid>
     </item>
 
     <item>
       <title>Triangle: an intro to multidimensional dynamic programming</title>
-      <link>https://funny-moments.neocities.org/programming/triangle/triangle</link>
+      <link>https://funny-moments.xyz/programming/triangle/triangle</link>
       <description>Dynamic Programming explained</description>
       <pubDate>Sat, 14 Dec 2024 16:34:00 +0000</pubDate>
-      <guid>https://funny-moments.neocities.org/programming/triangle/triangle</guid>
+      <guid>https://funny-moments.xyz/programming/triangle/triangle</guid>
     </item>
 
     <item>
@@ -73,10 +73,10 @@
 
     <item>
       <title>THE WORLDS MOST RELAXING SONG</title>
-      <link>https://funny-moments.neocities.org/weightless/weightless</link>
+      <link>https://funny-moments.xyz/weightless/weightless</link>
       <description>An investigation into Marconi Union's weightless, and the claim that it is medically performant on the level pills might be.</description>
       <pubDate>Tue, 20 Feb 2024 10:00:00 +0000</pubDate>
-      <guid>https://funny-moments.neocities.org/weightless/weightless</guid>
+      <guid>https://funny-moments.xyz/weightless/weightless</guid>
     </item>
 
     <!-- Add more items as needed -->
