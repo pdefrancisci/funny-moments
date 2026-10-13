@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Moments</title>
+    <link href="/contentStyle.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+  <center>
+    <div class="blog-post">
+      <h1>Developing apps...</h1>
+      <img src="https://funny-moments.neocities.org/programming/chumby/chumby_logo.gif" alt="Chumby logo">
+      <p>Ultimately, the purpose of the chumby, in my view, is to allow its users to express who they are, on the inside, as well as the outside. A critically important part of this is being able to develop ActionScript 2 / Flash apps in 2025. Without the ability to quickly iterate in the development process, the chumbyverse will only continue to shrink. Even more alarming is the ever shrinking host of tools which can be used to drive chumby development. Adobe blackholed the flash development suite the moment flash died. FlashDevelop is dead. The mtasc website leads to a photography site now.</p>
+      <p>Due to chumby's reliance on flash to drive its applications, this would be an existential threat to the chumbyverse, if not for the fact that the new offline firmware actually includes FOSS tools for flash development as native binaries!</p>
+      <p>Centre to this development suite is mtasc, which is included on the chumby's zurk framework. I need to wrestle with the classpath a bit, but here's a very rough workflow.</p>
+      <p>0) Actually create an actionscript to compile</p>
+      <p>1) Make sure the usb is mounted as read write, check with </p>
+      <p>   mount | grep usb</p>
+      <p>if you see the permissions are ro (should be in the parens) set with
+      <p>   mount -o remount,rw /mnt/usb</p>
+      <p>2) Now again, this could be way cleaner, but you can compile actionscript into a runnable .swf with the following...
+      <p>   /mnt/usb $ ./swftools/bin/mtasc -swf PlasmaDemo.swf -version 8 -main -header 320:240:12 PlasmaDemo.as -cp ./swftools/std8 -cp ./swftools/std</p>
+      <p>Given tuto.as is your input, tuto.swf is your output.</p>
+      <p>2.5) You might need to run stop_control_panel if you're out of swap space</p>
+      <p>3) Run chumbyflashplayer.x -i tuto.swf
+      <p>4) I'm pretty sure you can eventually put the resulting swf in</p>
+      <p>   /mnt/usb/lighty/html/zchannel/channels.c1/offline-mode</p>
+      <a href="https://funny-moments.neocities.org/programming/chumby/zurk"><p>How to Zurk your Chumby</p></a>
+      <a href="https://funny-moments.neocities.org/programming/chumby/day_one"><p>Day one with my chumby</p></a>
+    </div>
+  </center>
+  </body>
+</html>

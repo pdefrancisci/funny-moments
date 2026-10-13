@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Moments</title>
+    <link href="/contentStyle.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+  <center>
+    <div class="blog-post">
+      <h1>ZURK YOUR CHUMBY</h1>
+      <img src="https://funny-moments.neocities.org/programming/chumby/chumby.webp" alt="Chumby">
+      <p>The Chumby has its roots in the 2000s open hardware / hacker scene, the intention of the product was always to have community support, ensuring that if users really wanted something, it was well within their grasp.</p>
+      <p>However, while the hardware was open, the original chumbies ran on a server controlled by Chumby LLC. Meaning, when the company entered liquidation in 2012, the operability of the Chumby fell into question, reliant on the best efforts of CTO Duane Maxwell and Blue Octy LLC, who sought to keep operations intact for chumby users after purchasing the software assets in 2015. Realistically, this volunteer effort to keep the servers up could have only gone on for so long, but thankfully, a firmware was released to allow users to run their widgets locally, without needing to fret about the status of chumby.com.
+      <p>I was lucky enough to come across this excellent update to my chumby classic's firmware, and after digging around for a small enough flash drive (I'll explain) I eventually had my ducks in a row to do what's known in the chumbyverse as "zurking my chumby".</p>
+      <a href="https://github.com/JesseCake/zurks-offline-firmware-classic/tree/master"><h3>Find Jesse's excellent update to the chumby classic zurk here.</h3></a>
+      <p>But before I can get into the process of zurking a chumby, you will need to apply  <a href="https://forum.chumby.com/viewtopic.php?id=8654">the most recent firmware onchumby.com.</a></p>
+      
+      <p>In my experience with the chumby classic, there are 2 cases where one may want to upgrade the chumby firmware, either you are installing thenewest version of the base firmware, or you are installing the ssl patch in jesse's zurk github.</p>
+
+      <p>To perform the update, it's simple, you just move the contents of update.zip into the base directory of the flash drive*</p>
+
+      <p>Then, plug the drive into usb a on the chumby, turn it on, and press the screen to go into "special operations mode". Press "install an update", then select "install from usb". It will install it from a usb.</p>
+
+      <p>*The usb must be fat32 formatted, maybe with MBR, and not too large. Master of Chumby Duane Maxwell wrote on the forums that the usb can't exceed 4 gb. I had weird behavior from a 128 gb drive, but a 16 gb drive worked. I formatted my drive using rufus on windows. I believe I used a chunk size of 32 kb</p>
+
+      <p>Next I should describe the troubleshooting process for this. In the usb swup steps, there seems to be a reboot. It seems that if your drive is wrong in some way (and there are many ways in 2025) the upgrade may fail.</p>
+
+      <p>The chumby swup failing looks like a series of installation steps, where a progress bar completes a few times, before going into a reboot and hanging. You need to try check the following:</p>
+      <p>is the usb fat32/mbr/16gb or less?</p>
+      <p>is the usb plugged into usb a?</p>
+      <p>are the update files, and only the update files on the usb?</p>
+      <p>was the chumby already in a bad state?</p>
+
+      <p>In my experience, after hanging in a bad state during the upgrade, subsequent reboots will immediately hang as well.</p>
+
+      <p>You may also get faked out, the chumby can fail to detect your input on the screen, fail to take you to special operations, and hang. This can imply special operations and normal operations are broken, which would be a tough fix. They're not! just try again.</p>
+
+      <p>As far as recovery steps, it seems as simple as swupping the chumby firmware, which is published for the classic by Duane on the forums.</p>
+    </div>
+  </center>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Moments</title>
+    <link href="/contentStyle.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+  <center>
+    <div class="blog-post">
+      <h1>MY CHUMBY</h1>
+      <img src="https://funny-moments.neocities.org/programming/chumby/my_chumby.jpg" alt="My chumby">
+      <p>Finally, after months of debate, I finally plonked down my 40-50 ish dollars for a chumby off ebay. You're lookin' at it! I should probably start by mentioning I'm pretty sure 50ish bucks is the going price for a chumby as of writing in 2025. I should add that <a href="https://thechumbystore.com/">there is a chumby store,</a> which may mean you have access to a less thrashed chumby than my own.</p>
+      <p>Is this a fair price? I have absolute no way of telling you that. You could probably get a raspberry pi zero and a touch screen for about that price, which would have  a lot more compute, and wouldn't require you dig up a 16gb flash drive. But let's be serious. The chumby comes with a nice case, and a good looking, kind of nostalgic dashboard for widgets to run in. I just prefer that, warts and all, to the taped to a picture frame raspberry pi abominations every 15-35 year old techie makes.
+      <p>Anyway, I have a chumby. And when it arrived the entire functionality can pretty much be represented in this screen:</p>
+      <img src="https://funny-moments.neocities.org/programming/chumby/clock.jpg" alt="My chumby, showing a clock">
+      <p>As exciting as this is, the point of the chumby is the widgets. So to do that, I had to zurk my chumby. I've gone into these steps here, the short version is, follow Jesse's instructions, and use an old, small flash drive:</p>
+      <a href="https://funny-moments.neocities.org/programming/chumby/zurk"><p>How to Zurk your Chumby</p></a>
+      <p>But once I had actually zurked my chumby, I was thrilled to find out that not only did blindly installing a bunch of software not ruin my life, but it actually fixed tls! Pictured below is a photo of my chumby running an accuweather widget.</p>
+      <img src="https://funny-moments.neocities.org/programming/chumby/accuweather.jpeg" alt="My chumby, running the accuweather widget">
+      <p>This was huge because the chumby, made in the 2000s, wasn't built with modern encryption standards in mind. This means that if you were to try to access any website via https, you can't (and that's all of them).</p>
+      <p>So, given I have full access to pretty much all of the internet out of the box, a lot of the widgets actually still work, unless something in the internals of that app is broken. Now, this happens all the time, there's a Reuters app, BBC, a livestream thing, and all of them are broken, maybe half the apps. This is mostly because a lot of these apps were closed source, I can't fix the code, and they point to some endpoint that has moved. This happened with Google News, for instance, but this was just an RSS feed pointing to a bad endpoint. It was an easy fix, since it was a parameter.</p>
+      <img src="https://funny-moments.neocities.org/programming/chumby/ssh.jpg" alt="My chumby">
+      <p>Another sweet thing is that the chumby runs an ssh server! This is great for me. Ssh is a secure remote shell, so I'm able to move stuff around and fix things without having to unplug the usb or turn off my chumby. I changed the debugchumby to always launch the ssh server when it reboots, and from the remote shell I wrote a goodMorning script, which has text to speech say good morning, as well as the time and temperature.</p>
+      <p>I also hooked up a cronjob to set the screen to nighttime mode (darker, just shows the time) at 11pm, and to turn it off at 6am (when I usually get up, unfortunately).</p>
+      <p>Next, I'd like to set up some RSS feeds for music, local events, and jobs, potentially? I also don't have an app for the suntimes, nor do I have a functioning weather radar app. All pretty doable with a bit of finagling to get an adobe flash dev environment going. But the big fish are to integrate modern applications like TickTick or Gmail.</p>
+      <p>This would probably require implementing OAuth on the Chumby, which, I can't even say if that's hard or not. If I can just throw up a qr code, and prompt for a device code until the user logs in, I could actually probably leverage the way chumby apps rotate to refresh my session after displaying my most recent emails or my upcoming tasks.</p>
+      <p>We will see, but I'm thankful to have a reasonably simple framework for implementing this stuff.</p>
+    </div>
+  </center>
+  </body>
+</html>
