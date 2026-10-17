@@ -1,0 +1,3 @@
+rsync -avz --exclude='*.zip' ./ pjd@137.184.220.205:/var/www/example.com/html/
+ssh pjd@137.184.220.205
+sudo systemctl reload nginx

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Moments</title>
+    <link href="/contentStyle.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+  <center>
+    <div class="blog-post">
+      <h1>Chumby, a new dawn rises</h1>
+      <p>So, as you may have noticed, a few things have changed at Funny Moments HQ, based out of 33 Thomas Street in Mahattan. For reasons I'll get into a moment, I'm moving operations off of Neocities, I've bought a domain, and there's some very, very exciting news relating to Chumby operations.</p>
+	    <img src="https://funny-moments.xyz/programming/chumby/33thomas.jpg" alt="TITANPOINTE home">
+      <p>Starting out with the Chumby, after writing a few articles and vibe coding a single dinky little chumby app, early 2026 turned out to unfortunately be a barren time for, at least my corner of the Chumbyverse. The main reason is kind of evident if you look at my old article about developing flash apps for the Chumby. (Presumably, my audience knows their way around the Chumby at this point, I don't need to patronize you and explain things you already know about the 64 mb of ram or the flash based apps that run on it)</p>
+      <p>Essentially, iterating apps for the Chumby requires you to know actionscript2, requires you to SSH onto the Chumby, and basically demands I sit in my room getting up and down like a freaker. You can't do it from a coffeeshop, you can't do it just chilling out. Because I don't know as2 and there aren't really dev tools, you kind of need to vibe code the apps which, if nothing else is pretty lame. Not only that, a few of the funner Chumby apps, ones with really fun 2000s-y assets, died this year because the underlying applications must have moved away from xml / pure http. This is pretty bad news for those of us who are big into the Chumby. That means it's bad news for you.</p>
+      <p>Thankfully, I think there's kind of a solution to both of these issues. It's not perfect, but it can be expanded on, yadda yadda. It's pretty simple to make a chumby app that just hits a website and loads an image. Where are we loading from? We can define it in the parameters.txt. So, if we can define an endpoint that serves a 320x240 image to the Chumby, the only thing we do on the Chumby development side is to point it at the endpoint. <a href="http://chumby.funny-moments.xyz/chumby/nhl/nyi"><p>When are the Islanders playing next?</p></a><a href="http://chumby.funny-moments.xyz/chumby/radar/KOKX"><p>What's the weather radar look like in NY?</p></a></p>
+      <img src="https://funny-moments.xyz/programming/chumby/fm_chumby.jpg" alt="TITANPOINTE home">
+      <p>Other ideas I have for this process involve pulling NYC MTA data to view local transit times, pulling flight radar given your latitude and longitude to show where the nearest plane is headed, and my more ambitious ideas involve hooking up humidity probes to some microcontrollers, driving a database of plant moisture that I can view via the Chumby. I don't know what the point of that would be, if the plants are next to the Chumby on my desk, come to think of it. Anyway.</p>
+      <p>Unfortunately, this does come at a cost. It's simple to run a Flask server in Python and to keep adding new endpoints, but as far as I could tell the existing Funny Moments neocities site wasn't going to be able to drive a flask server. So, I bought my own real domain and set up a droplet (basically a small slice of a linux server) on DigitalOcean, which desribes itself as an "AI-Native Cloud".</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/uSgOb1FvPAQ?si=CnxiFRHDnTURkeez&amp;start=90" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <p>I also bought funny-moments.xyz for 2 years, for $20 from CloudFlare.</p>
+      <p>I know this is really disappointing, Neocities is awesome and very cute, and I invite everyone reading this to make your own site. It's literally free, it's never been easier to just type for an hour into a laptop, make it a bunch of html paragraphs, and bob's your uncle.</p>
+      <p>But hosting through DO was so much easier than self-hosting (for now) and the whole thing will cost me about what I was paying for Neocities anyway, so it was hard to justify keeping my NeoCities supporter subscription going.</p>
+      <p>Anyway, the meat of the article for me is to describe this hosting process, since I look at this stuff when I forget. I've covered the important stuff already. It was simple enough to sign up for DigitalOcean and buy a domain through CloudFlare, and once I had set up some DNS records in the CloudFlare dashboard I was able to ssh into funny-moments.xyz at the non-root user I had set up. The funny-moments site you're looking at now is driven by nginx, so I opened up ports to allow traffic to hit it (while not breaking ssh lol). I then copied my files out of neocities, (there's a button at the bottom of the edit site page) and dropped them into /var/www/example.com/html and configured nginx to listen on port 80 to incoming connectors. Changing the nginx site is easy now, I just do:</p>
+      <pre><code>rsync -avz --exclude='*.zip' ./ pjd@funny-moments.xyz:/var/www/example.com/html/
+ssh pjd@funny-moments.xyz
+sudo systemctl reload nginx</code></pre>
+      <p>Rsync moves the updated site from my local folder on my laptop (tracked in github) to the DigitalOcean droplet. So, if I ssh onto the droplet and reload nginx, the updated site reflects.</p>
+      <p>Flask is similarly easy. Since I'm just making an endpoint that serves and image, I make a python script that generates an image, before using that script as a basis to drive an endpoint in the Chumby flask server. Since we're defining an endpoint in the parameters.txt of the Chumby, you can simply change http://chumby.funny-moments.xyz/chumby/nhl/nyi to http://chumby.funny-moments.xyz/chumby/nhl/nyr and you'll get the Rangers instead of the Islanders, if you're into that. It's a similarly easy:</p>
+      <pre><code>rsync -avz --exclude venv --exclude __pycache__ ./ pjd@funny-moments.xyz:~/apps/chumby/</code></pre>
+      <pre><code>ssh pjd@funny-moments.xyz
+sudo systemctl restart chumby
+sudo systemctl status chumby</code></pre>
+      <p>So yeah, using this, development of new Chumby apps has gone from 1 in 6 months (I did make a dinky little suntimes app out of AI crap) to 2-3 in a week (the NHL schedule one, a test image app I might change to serve images I push, someday, and the weather radr, which I just saw doesn't work right). Exciting times to be in the Chumby community.</p>
+    </div>
+  </center>
+  </body>
+</html>
